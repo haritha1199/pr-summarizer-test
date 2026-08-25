@@ -10,6 +10,10 @@
 <body>
   <div class="calc-wrapper">
     <div class="calc">
+      <div class="calc-topbar">
+        <button class="btn-theme-toggle" id="theme-toggle" title="Toggle theme">🌙</button>
+        <span class="memory-indicator" id="memory-indicator"></span>
+      </div>
       <div class="display">
         <div class="display-expr" id="expr">0</div>
         <div class="display-result" id="result"></div>
@@ -20,6 +24,11 @@
         <button class="btn-clear-history" id="clear-history">Clear</button>
       </div>
       <div class="keypad">
+        <!-- Row 0: Memory -->
+        <button class="btn btn-mem" data-val="MC">MC</button>
+        <button class="btn btn-mem" data-val="MR">MR</button>
+        <button class="btn btn-mem" data-val="M+">M+</button>
+        <button class="btn btn-mem" data-val="M-">M−</button>
         <!-- Row 1 -->
         <button class="btn btn-func" data-val="AC">AC</button>
         <button class="btn btn-func" data-val="+/-">+/−</button>
@@ -46,6 +55,7 @@
         <button class="btn btn-num" data-val=".">.</button>
         <button class="btn btn-eq"  data-val="=">=</button>
       </div>
+      <div class="keyboard-hint">Tip: use your keyboard — numbers, +/−/×/÷, Enter for =</div>
     </div>
   </div>
   <script src="calculator.js"></script>
