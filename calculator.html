@@ -29,8 +29,15 @@
         </div>
       </header>
 
+      <!-- Submenu / Mode Row Selector -->
+      <nav class="calc-modes" aria-label="Calculator Modes">
+        <button class="mode-btn active" data-mode="std">Standard</button>
+        <button class="mode-btn" data-mode="sci">Scientific</button>
+        <button class="mode-btn" data-mode="matrix">Matrix</button>
+      </nav>
+
       <!-- Main Screen Readout -->
-      <section class="display-section">
+      <section class="display-section" aria-live="polite">
         <div class="display-expr" id="expr" aria-label="Expression">0</div>
         <div class="display-result" id="result" aria-label="Result"></div>
       </section>
@@ -58,7 +65,7 @@
 
         <!-- Main Input Grid -->
         <div class="keypad-grid">
-          <!-- Row 1 -->
+          <!-- Row 1: High level utilities -->
           <button class="btn btn-func btn-accent-danger" data-val="AC">AC</button>
           <button class="btn btn-func" data-val="DEL" title="Backspace">⌫</button>
           <button class="btn btn-func" data-val="%">%</button>
