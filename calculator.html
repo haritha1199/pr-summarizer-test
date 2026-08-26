@@ -3,161 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ENGINEERING COMPUTATION PLATFORM // V14-PRO</title>
+  <title>CALCULATOR 14 — ESSENTIAL</title>
   <link rel="stylesheet" href="calculator.css" />
   <link href="https://googleapis.com" rel="stylesheet"/>
 </head>
-<body class="theme-industrial-core">
+<body class="theme-minimal">
 
-  <!-- Application Root Master Container Layout -->
-  <div class="dashboard-wrapper">
+  <!-- Main Calculator Card -->
+  <main class="calc-card">
     
-    <!-- Top Global System Navigation Bar Container -->
-    <header class="global-navbar">
-      <div class="nav-branding">
-        <span class="sys-status-indicator pulse" aria-hidden="true"></span>
-        <h1>ENGINEERING DATA CONSOLE <span class="version-tag">// V14.4_PRO</span></h1>
-      </div>
-      <div class="nav-telemetry">
-        <div class="telemetry-block"><span class="lbl">KERNEL:</span> <span class="val">ACTIVE</span></div>
-        <div class="telemetry-block"><span class="lbl">MATH_ENGINE:</span> <span class="val" id="active-engine-indicator">FLOAT64</span></div>
-        <button class="action-icon-button" id="global-config-toggle" title="System Settings" aria-label="System Settings">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
-          </svg>
-        </button>
-      </div>
+    <!-- Top Display Readout -->
+    <header class="display-group" aria-live="polite">
+      <div class="display-expr" id="expr" aria-label="Expression">0</div>
+      <div class="display-result" id="result" aria-label="Result"></div>
     </header>
 
-    <!-- Master Interactive Workspace Panel Grid Matrix -->
-    <main class="dashboard-grid" id="main-workspace-grid">
-      
-      <!-- Component Card Panel A: Multi-Line Operational Logic Scripting Block -->
-      <section class="dashboard-panel card-computation-engine" aria-labelledby="heading-computations">
-        <header class="panel-header-block">
-          <h2 id="heading-computations" class="panel-header-title">EXECUTION TERMINAL // MATH STACK</h2>
-          <div class="panel-action-tabs">
-            <button class="tab-pill active" data-target-mode="interactive">Interactive</button>
-            <button class="tab-pill" data-target-mode="scripting">Scripting</button>
-          </div>
-        </header>
+    <!-- Keypad Layout Matrix -->
+    <div class="keypad-grid">
+      <!-- Row 1: Clear and Operators -->
+      <button class="btn btn-func btn-clear" data-val="AC">AC</button>
+      <button class="btn btn-func" data-val="DEL" title="Backspace">⌫</button>
+      <button class="btn btn-func" data-val="%">%</button>
+      <button class="btn btn-op" data-val="÷">÷</button>
 
-        <!-- Advanced Multiline Display Monitor System Canvas -->
-        <div class="terminal-display-sandbox" aria-live="polite">
-          <div class="history-scroll-stack" id="history-scroll-viewport">
-            <div class="history-item-row">
-              <span class="row-num">01</span>
-              <p class="matrix-notation-string">A = [[4, 7], [1, 9]]</p>
-            </div>
-            <div class="history-item-row">
-              <span class="row-num">02</span>
-              <p class="matrix-notation-string">det(A) ⇒ 29</p>
-            </div>
-          </div>
-          
-          <!-- Continuous Interactive Live Entry Form Rows -->
-          <div class="interactive-input-group">
-            <span class="terminal-caret" aria-hidden="true">&gt;&gt;</span>
-            <textarea class="scripting-node-textarea" id="script-input-field" placeholder="Enter equation, matrix transformation rule, or float math calculations..." rows="1" spellcheck="false" aria-label="Equation Input Field"></textarea>
-          </div>
-          
-          <div class="interactive-output-group">
-            <span class="terminal-response-caret" aria-hidden="true">ans:</span>
-            <div class="live-calculated-result-text" id="live-computation-output">0.00000000</div>
-          </div>
-        </div>
+      <!-- Row 2 -->
+      <button class="btn btn-num" data-val="7">7</button>
+      <button class="btn btn-num" data-val="8">8</button>
+      <button class="btn btn-num" data-val="9">9</button>
+      <button class="btn btn-op" data-val="×">×</button>
 
-        <!-- Alphanumeric Layout Matrix Pad Input Block Wrapper -->
-        <div class="industrial-keypad-matrix">
-          
-          <!-- Context High-Level Modular Row Arrays -->
-          <div class="macro-row-inputs">
-            <button class="btn btn-ctrl btn-danger" data-macro="AC">AC</button>
-            <button class="btn btn-ctrl" data-macro="BACKSPACE">⌫</button>
-            <button class="btn btn-ctrl" data-macro="ANS">ANS</button>
-            <button class="btn btn-ctrl" data-macro="FUNC_INV">INV</button>
-            <button class="btn btn-math-op" data-macro="÷">÷</button>
-          </div>
+      <!-- Row 3 -->
+      <button class="btn btn-num" data-val="4">4</button>
+      <button class="btn btn-num" data-val="5">5</button>
+      <button class="btn btn-num" data-val="6">6</button>
+      <button class="btn btn-op" data-val="−">−</button>
 
-          <!-- Primary Numerical Variable Data Inputs Matrix Grid -->
-          <div class="core-numerical-matrix-grid">
-            <button class="btn btn-digit-cell" data-input="7">7</button>
-            <button class="btn btn-digit-cell" data-input="8">8</button>
-            <button class="btn btn-digit-cell" data-input="9">9</button>
-            <button class="btn btn-math-op" data-input="×">×</button>
+      <!-- Row 4 -->
+      <button class="btn btn-num" data-val="1">1</button>
+      <button class="btn btn-num" data-val="2">2</button>
+      <button class="btn btn-num" data-val="3">3</button>
+      <button class="btn btn-op" data-val="+">+</button>
 
-            <button class="btn btn-digit-cell" data-input="4">4</button>
-            <button class="btn btn-digit-cell" data-input="5">5</button>
-            <button class="btn btn-digit-cell" data-input="6">6</button>
-            <button class="btn btn-math-op" data-input="−">−</button>
+      <!-- Row 5 -->
+      <button class="btn btn-func" data-val="+/-">±</button>
+      <button class="btn btn-num" data-val="0">0</button>
+      <button class="btn btn-num" data-val=".">.</button>
+      <button class="btn btn-eq" data-val="=">=</button>
+    </div>
 
-            <button class="btn btn-digit-cell" data-input="1">1</button>
-            <button class="btn btn-digit-cell" data-input="2">2</button>
-            <button class="btn btn-digit-cell" data-input="3">3</button>
-            <button class="btn btn-math-op" data-input="+">+</button>
+  </main>
 
-            <button class="btn btn-digit-cell" data-input="0">0</button>
-            <button class="btn btn-digit-cell" data-input=".">.</button>
-            <button class="btn btn-digit-cell" data-input="EXP">e</button>
-            <button class="btn btn-execution-cell" id="execute-button" data-input="=">=</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Component Card Panel B: Graphing Mechanics and Variable Vector Workspace Visualizer -->
-      <section class="dashboard-panel card-visualization-workspace" aria-labelledby="heading-visualization">
-        <header class="panel-header-block">
-          <h2 id="heading-visualization" class="panel-header-title">REAL-TIME DATA VISUALIZATION // SVG CANVAS</h2>
-        </header>
-        <div class="graphing-viewport-frame">
-          <div class="canvas-render-container" id="svg-plotter-root">
-            <!-- Native SVG canvas block placeholder ready for parsing mathematical calculations logic -->
-            <svg class="native-render-grid-svg" width="100%" height="100%" xmlns="http://w3.org" aria-label="Mathematical Function Grid Plotting Field">
-              <defs>
-                <pattern id="minor-grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-                </pattern>
-                <pattern id="major-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                  <rect width="50" height="50" fill="url(#minor-grid)"/>
-                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#major-grid)" />
-            </svg>
-          </div>
-        </div>
-        
-        <!-- Base Conversions Tracking Component Node Segment -->
-        <div class="bit-bashers-base-row" aria-label="Bitwise Intermediary Base Conversions Tracker">
-          <div class="base-data-node"><span class="label">HEX:</span> <span class="data" id="hex-base-readout">0x0</span></div>
-          <div class="base-data-node"><span class="label">DEC:</span> <span class="data" id="dec-base-readout">0</span></div>
-          <div class="base-data-node"><span class="label">BIN:</span> <span class="data" id="bin-base-readout">0b0</span></div>
-        </div>
-      </section>
-
-      <!-- Component Card Panel C: Linear Algebra Matrix Scaffolding Node Viewport -->
-      <section class="dashboard-panel card-matrix-workspace" aria-labelledby="heading-matrix">
-        <header class="panel-header-block">
-          <h2 id="heading-matrix" class="panel-header-title">LINEAR ALGEBRA ARRAYS // DATA GRID</h2>
-        </header>
-        <div class="matrix-workspace-scaffold-container">
-          <div class="matrix-configuration-header">
-            <label for="matrix-dimension-selector" class="micro-label">DIMENSION ARRAY:</label>
-            <select id="matrix-dimension-selector" class="micro-select-dropdown">
-              <option value="2">2 x 2</option>
-              <option value="3" selected>3 x 3</option>
-              <option value="4">4 x 4</option>
-            </select>
-          </div>
-          
-          <!-- Responsive input component container fields for matrix mathematical equations -->
-          <div class="matrix-input-scaffold-cells" id="matrix-dynamic-cells-root">
-            <!-- Row 1 cells -->
-            <input type="number" class="matrix-node-cell" value="1.0" aria-label="Matrix Position R1C1"/>
-            <input type="number" class="matrix-node-cell" value="0.0" aria-label="Matrix Position R1C2"/>
-            <input type="number" class="matrix-node-cell" value="0.0" aria-label="Matrix Position R1C3"/>
-            <!-- Row 2 cells -->
-            <input type="number" class="matrix-node-cell" value="0.0" aria-label="Matrix Position R2C1"/>
-            <input type="number" class="matrix-node-cell" value="1.0" aria-label="Matrix Position R2C2"/>
-            <input type="number" class="matrix-node-cell" value="0.0" aria-label="Matrix Position R2C3"/>
-            <!-- Row 3 cells -->
+  <script src="calculator.js"></script>
+</body>
+</html>
