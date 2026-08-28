@@ -3,62 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CALCULATOR 14 — REFINED</title>
+  <title>Calculator 14 — Refined Premium</title>
+  
+  <!-- Typography Engine Integration -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com" rel="stylesheet">
+  
   <link rel="stylesheet" href="calculator.css" />
-  <link href="https://googleapis.com" rel="stylesheet"/>
 </head>
 <body class="theme-premium-dark">
 
-  <!-- Main Calculator Card Element -->
+  <!-- Core Calculator Module Box -->
   <main class="calc-card-container">
     
-    <!-- Top Meta Context Bar -->
-    <div class="calc-context-row">
-      <span class="context-badge active">FLOAT64</span>
-      <span class="context-history-preview" id="history-preview">ans = 0</span>
-    </div>
-
-    <!-- Main Output Screen Readout -->
-    <header class="display-screen" aria-live="polite">
-      <div class="display-expr" id="expr" aria-label="Input formula">0</div>
-      <div class="display-result-wrapper">
-        <span class="result-marker">→</span>
-        <div class="display-result" id="result" aria-label="Evaluated answer"></div>
-      </div>
+    <!-- Status Context Panel -->
+    <header class="calc-context-row">
+      <span class="context-badge active" aria-label="Engine Precision Mode">FLOAT64</span>
+      <span class="context-history-preview" id="history-preview" aria-live="polite">ans = 0</span>
     </header>
 
-    <!-- Refined Keypad Layout Blocks -->
+    <!-- Visual Output Panel Screen -->
+    <section class="display-screen" aria-labelledby="screen-heading">
+      <h2 id="screen-heading" class="sr-only">Calculator Output Viewport</h2>
+      
+      <!-- Expression Line -->
+      <div class="display-expr" id="expr" aria-live="polite" aria-label="Current expression Input">0</div>
+      
+      <!-- Execution Value Readout -->
+      <div class="display-result-wrapper">
+        <span class="result-marker" aria-hidden="true">→</span>
+        <div class="display-result" id="result" aria-live="polite" aria-label="Computed Result Window">0</div>
+      </div>
+    </section>
+
+    <!-- Layout Input Keypad -->
     <div class="keypad-matrix">
       
-      <!-- Utility Row Group -->
+      <!-- Utility Action Group Panel -->
       <div class="keypad-row-group utility-group">
-        <button class="btn btn-utility btn-clear" data-val="AC">AC</button>
-        <button class="btn btn-utility" data-val="DEL" title="Backspace">⌫</button>
-        <button class="btn btn-utility" data-val="%">%</button>
-        <button class="btn btn-operator" data-val="÷">÷</button>
+        <button type="button" class="btn btn-utility btn-clear" data-val="AC" aria-label="Clear all inputs">AC</button>
+        <button type="button" class="btn btn-utility btn-backspace" data-val="DEL" aria-label="Delete last input">⌫</button>
+        <button type="button" class="btn btn-utility btn-modifier" data-val="%" aria-label="Percentage Modulo">%</button>
+        <button type="button" class="btn btn-operator" data-val="/" aria-label="Divide Operations">÷</button>
       </div>
 
-      <!-- Core Alphanumeric Grid Mapping -->
+      <!-- Core Alpha Grid Block Panel Mapping -->
       <div class="keypad-main-grid">
-        <button class="btn btn-digit" data-val="7">7</button>
-        <button class="btn btn-digit" data-val="8">8</button>
-        <button class="btn btn-digit" data-val="9">9</button>
-        <button class="btn btn-operator" data-val="×">×</button>
+        <button type="button" class="btn btn-digit" data-val="7">7</button>
+        <button type="button" class="btn btn-digit" data-val="8">8</button>
+        <button type="button" class="btn btn-digit" data-val="9">9</button>
+        <button type="button" class="btn btn-operator" data-val="*" aria-label="Multiply Operations">×</button>
 
-        <button class="btn btn-digit" data-val="4">4</button>
-        <button class="btn btn-digit" data-val="5">5</button>
-        <button class="btn btn-digit" data-val="6">6</button>
-        <button class="btn btn-operator" data-val="−">−</button>
+        <button type="button" class="btn btn-digit" data-val="4">4</button>
+        <button type="button" class="btn btn-digit" data-val="5">5</button>
+        <button type="button" class="btn btn-digit" data-val="6">6</button>
+        <button type="button" class="btn btn-operator" data-val="-" aria-label="Subtract Operations">−</button>
 
-        <button class="btn btn-digit" data-val="1">1</button>
-        <button class="btn btn-digit" data-val="2">2</button>
-        <button class="btn btn-digit" data-val="3">3</button>
-        <button class="btn btn-operator" data-val="+">+</button>
+        <button type="button" class="btn btn-digit" data-val="1">1</button>
+        <button type="button" class="btn btn-digit" data-val="2">2</button>
+        <button type="button" class="btn btn-digit" data-val="3">3</button>
+        <button type="button" class="btn btn-operator" data-val="+" aria-label="Add Operations">+</button>
 
-        <button class="btn btn-utility" data-val="+/-">±</button>
-        <button class="btn btn-digit" data-val="0">0</button>
-        <button class="btn btn-digit" data-val=".">.</button>
-        <button class="btn btn-execution" data-val="=">=</button>
+        <button type="button" class="btn btn-utility" data-val="±" aria-label="Toggle Positive Negative Value">±</button>
+        <button type="button" class="btn btn-digit" data-val="0">0</button>
+        <button type="button" class="btn btn-digit" data-val=".">.</button>
+        <button type="button" class="btn btn-execution" data-val="=" aria-label="Execute Calculation">=</button>
       </div>
     </div>
 
